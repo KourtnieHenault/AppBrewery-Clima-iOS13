@@ -18,13 +18,18 @@ struct WeatherManager {
     
     var delegate: WeatherManagerDelegate?
     
-    func fetchWeatherByCity(city: String){
+    func fetchWeather(city: String){
         let url = "\(weatherURL)&q=\(city)"
         performRequest(with: url)
     }
     
-    func fetchWeatherByCityState(city: String, state: String){
+    func fetchWeather(city: String, state: String){
         let url = "\(weatherURL)&q=\(city),\(state)"
+        performRequest(with: url)
+    }
+    
+    func fetchWeather(latitude: Double, longitude: Double){
+        let url = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
         performRequest(with: url)
     }
     
